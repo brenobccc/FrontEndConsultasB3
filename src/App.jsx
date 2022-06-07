@@ -1,7 +1,15 @@
-import React from 'react';
 
-export default ()=>{
-    return <div>
-        teste1
-    </div>
-}
+  import React from "react";
+  import Grafico from './Grafico';
+   
+  function App() {
+    // useEffect(() => {
+    // }, []);
+    return (
+      <div className="App">
+        <Grafico nomeAtivo="VALE3.SAO"/>
+      </div>
+    );
+  }
+   
+  export default App;
