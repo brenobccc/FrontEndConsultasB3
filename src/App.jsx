@@ -7,7 +7,7 @@
     // }, []);
     return (
       <div className="App">
-        <Grafico nomeAtivo="VALE3.SAO"/>
+        <Grafico nomeAtivo="VALE3.SAO;PETR4.SAO"/>
       </div>
     );
   }

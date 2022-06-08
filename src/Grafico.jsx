@@ -40,34 +40,75 @@ export default (props) => {
 
     const [chartOptions, setChartOptions] = useState({});
 
+    const [datsets, setDatasets] = useState([]);
+
+    const dt = {
+        label: 'Gráfico Teste',
+        backgroundColor: 'rgb(211, 99, 132)',
+        borderColor: 'rgb(211, 99, 132)',
+        borderWidth: 1.5,
+        data: [],// fill: 
+        //     target: 'origin',
+        //     above: 'red',   // Area will be red above the origin
+        //     below: 'red'    // And blue below the origin
+        // },
+        tension: 0.4,
+        //pointStyle: 'rectRot'
+        pointStyle: 'circle',
+        pointRadius: 0,
+        hoverPointRadius: 0
+
+    }
+
     useEffect(() => {
         axios.get(url).then((response) => {
             setDados(response.data);
 
+            let lista = []
+
+            for(let dads = 0; dads < response.data.lista_ativosb3.length; dads++){
+                // let objData = dt.data;
+                // console.log(" teste \n");
+                // console.log("v:"+response.data.lista_ativosb3[dads].valores+"\n");
+                
+                // objData.data = response.data.lista_ativosb3[dads].valores;
+                // console.log("depois:"+objData+"\n");
+                lista.push({
+                    label: 'Gráfico Teste',
+                    backgroundColor: 'rgb(211, 99, 132)',
+                    borderColor: 'rgb(211, 99, 132)',
+                    borderWidth: 1.5,
+                    data: response.data.lista_ativosb3[dads].valores,// fill: 
+                    //     target: 'origin',
+                    //     above: 'red',   // Area will be red above the origin
+                    //     below: 'red'    // And blue below the origin
+                    // },
+                    tension: 0.4,
+                    //pointStyle: 'rectRot'
+                    pointStyle: 'circle',
+                    pointRadius: 0,
+                    hoverPointRadius: 0
+            
+                });
+            }
+            // for (let ds in dados) {
+               
+            //     console.log("aq: "+ds);
+            //     //lista.push(dt.data,);
+            
+            // }
+
+            setDatasets(lista);
+            console.log(lista)
+            //console.log(lista);
+
 
             setChartData({
-                //labels: ["John", "Kevin", "Geroge", "Micheal", "Oreo"],
-              
-                datasets: [
-                    {
-                        label: nomeAtivo,
-                        //data: [12, 55, 34, 120, 720],
-                        data: response.data,
-                        borderColor: "rgb(53, 162, 235)",
-                        backgroundColor: "rgba(255,99,132,0,2)",
-                        tension: 0, 
-                        //pointStyle: 'rectRot'
-                        pointStyle: 'circle',
-                        pointRadius: 0,
-                        hoverPointRadius: 0,
-                        borderWidth: 0.9,
-                        fill: true
-                      
-                    },
-                ],
+                labels: response.data.list_datas_genericas,
+                datasets: lista,
             });
 
-            
+
             setChartOptions({
                 // maintainAspectRatio: false,
                 responsive: false,
@@ -90,7 +131,7 @@ export default (props) => {
         <h1>Dados logo abaixo</h1>
         {/* {JSON.stringify(dados)} */}
         <div style={{ width: '780px', height: '300px', fontSize: '14px' }} >
-            <Line options={chartOptions} data={chartData}/>
+            <Line options={chartOptions} data={chartData} />
         </div>
     </div >)
 }
