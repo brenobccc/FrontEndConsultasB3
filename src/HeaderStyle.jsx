@@ -14,7 +14,7 @@ export const HeaderDiv = styled.div`
 export const Div = styled.div`
     // background: #57E27E;
 
-    width: 99%;
+    width: 98.5%;
     height: 75%;
     display: flex;
     justify-content: space-between;
