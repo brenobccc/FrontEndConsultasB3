@@ -18,10 +18,3 @@ export const NavAside = styled.div`
 `;
 
 
-export const Content = styled.div`
-background: rgba(12, 36, 16, 0.13);
-width: 70%;
-    height: 753px;
-    border-radius: 15px;
-`;
-

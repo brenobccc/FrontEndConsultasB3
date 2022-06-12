@@ -14,6 +14,17 @@ import {
 import { Line } from 'react-chartjs-2';
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import styled from "styled-components";
+
+const Div = styled.div`
+width:80%;
+height: 400px;
+background: white;
+padding-left: 15px;
+box-sizing: border-box;
+border-radius: 15px;
+`
+
 
 
 ChartJS.register(
@@ -145,7 +156,7 @@ export default (props) => {
 
             setChartOptions({
                 // maintainAspectRatio: false,
-                responsive: false,
+                responsive: true,
                 plugins: {
                     legend: {
                         position: "top",
@@ -161,11 +172,10 @@ export default (props) => {
     }, []);
 
 
-    return (<div>
-        <h1>Dados logo abaixo</h1>
-        {/* {JSON.stringify(dados)} */}
-        <div style={{ width: '700px', height: '500px', fontSize: '14px' }} >
-            <Line options={chartOptions} data={chartData} />
-        </div>
-    </div >)
+    return (
+       
+       
+        <Div style={{fontSize: '14px' }} >
+            <Line id="grafico-linha" options={chartOptions} data={chartData} />
+        </Div>)
 }

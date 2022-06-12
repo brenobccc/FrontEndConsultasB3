@@ -3,10 +3,11 @@ import styled from "styled-components";
 export const HeaderDiv = styled.div`
     // background: #57E27E;
     width: 100%;
-    height: 80px;
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 25px;
 
 `;
 
