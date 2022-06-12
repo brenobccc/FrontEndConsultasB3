@@ -17,12 +17,15 @@ const Div = styled.div`
 
 
 export default function DivGrafico(props) {
-
+console.log(props.dtIni + '_')
+console.log(props.dtFim + '_')
+console.log(props.ativos + '_')
 //let dtIni = '01/04/2021', dtFim = '01/05/2022', ativos = 'Petrobrás';
     // let dtIni ='', dtFim = '', ativos = '';
     
 
     return (
+        // <Grafico nomeAtivo = {props.ativos}></Grafico>
         <Div>
             <div>
                 <div id="grafico-form">
@@ -32,7 +35,7 @@ export default function DivGrafico(props) {
             <div id="grafico-content">
 
                 {
-                    (props.dtIni === undefined || props.dtFim ===undefined || props.ativos === undefined) ? <GraficoVazio/> : <Grafico nomeAtivo = {props.ativos}/> 
+                    (props.dtIni === undefined || props.dtFim ===undefined || props.ativos === undefined) ? <GraficoVazio/> : <Grafico  nomeAtivo = {props.ativos} dataIni = {props.dtIni} dataFim = {props.dtFim}/> 
                 }
 
             </div>

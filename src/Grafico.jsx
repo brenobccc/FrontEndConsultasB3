@@ -40,13 +40,30 @@ ChartJS.register(
 
 
 
+  
+ 
+
+
 export default (props) => {
+
+    // function FormataStringData(data) {
+    //     var dia  = data.split("/")[0];
+    //     var mes  = data.split("/")[1];
+    //     var ano  = data.split("/")[2];
+      
+    //     return ano + '-' + ("0"+mes).slice(-2) + '-' + ("0"+dia).slice(-2);
+    //     // Utilizo o .slice(-2) para garantir o formato com 2 digitos.
+    //   }
+      
 
     // const url = "http://localhost:3000/teste?ativo=VALE3.SAO&data_inicial=2019-01-04&data_final=2020-02-26";
     const nomeAtivo = props.nomeAtivo;
+    let dataIni = props.dataIni;
+    let dataFim = props.dataFim;
 
-    console.log(nomeAtivo)
-    const url = `http://localhost:3000/teste?ativo=${nomeAtivo}&data_inicial=2019-01-04&data_final=2020-02-26`
+    console.log("nome atual:"+nomeAtivo);
+    console.log("dataIni"+dataIni)
+    const url = `http://localhost:3000/teste?ativo=${nomeAtivo}&data_inicial=${dataIni}&data_final=${dataFim}`
     const [dados, setDados] = useState();
     const [chartData, setChartData] = useState({
         datasets: [],
@@ -94,7 +111,7 @@ export default (props) => {
     //     {fill: '-2'}        // 4: fill to dataset 2
     // ]
 
-    useEffect(() => {
+    useEffect((nomeAtivo, dataIni, dataFim) => {
         axios.get(url).then((response) => {
             setDados(response.data);
 
@@ -169,7 +186,7 @@ export default (props) => {
             });
         })
 
-    }, []);
+    },[nomeAtivo, dataIni, dataFim ]);
 
 
     return (

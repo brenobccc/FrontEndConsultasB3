@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from 'react';
+import {React, useState, useEffect} from 'react';
 import styled from "styled-components";
 import DivGrafico from './DivGrafico';
 import GraficoVazio from './GraficoVazio'
@@ -32,19 +32,18 @@ border-radius: 20px;
 //     console.log("teste")
 // }
 
-export default function Content(props) {
-    const [data_ini, setDataIni] = useState('');
-    const [data_fim, setDataFim] = useState('');
-    const [ativo, setAtivo] = useState('');
-    const [ativoAnt, setAtivoAnt] = useState('');
+export default function Content(props){
+    const [data_ini,setDataIni] = useState('');
+    const [data_fim,setDataFim] = useState('');
+    const [ativo,setAtivo] = useState('');
+    const [ativoAnt,setAtivoAnt] = useState('');
 
     const [controll, setControll] = useState(true)
-    const [controll2, setControll2] = useState(false)
 
-    useEffect((ativo) => {
+    useEffect((ativo)=>{
         console.log("mudou")
     })
-
+    
 
     return (
         <Div>
@@ -53,27 +52,28 @@ export default function Content(props) {
                 <input type="date" id="data_inicial"></input>
                 <input type="date" id="data_final"></input>
                 <input type="text" id="ativo"></input>
-                <button onClick={() => {
-                    setDataIni(document.getElementById("data_inicial").value);
-                    setDataFim(document.getElementById("data_final").value);
+                <button onClick= {()=> {
+                   setDataIni(document.getElementById("data_inicial").value);
+                   setDataFim(document.getElementById("data_final").value);
+                   
+                   setAtivoAnt(ativo);
+                   setAtivo(document.getElementById("ativo").value);
+                   
+                   
 
-                    setAtivoAnt(ativo);
-                    setAtivo(document.getElementById("ativo").value);
-
-
-                    //    if(controll){
-                    //         setControll(true);
-                    //    }
+                //    if(controll){
+                //         setControll(true);
+                //    }
                 }}>
                     enviar
                 </button>
             </DivForm>
-            {console.log("Data inicial:" + data_ini)}
-
-            {controll == true ?
-                (ativo != "" ? (<DivGrafico dtIni={data_ini} dtFim={data_fim} ativos={ativo} />) : <GraficoVazio />) : ""}
+            {console.log("Data inicial:"+data_ini)}
+            
+            { controll == true ? 
+                ( ativo != "" ?   (<DivGrafico dtIni = {data_ini} dtFim = {data_fim} ativos = {ativo} /> ) : <GraficoVazio/>) : ""}
             {/* { controll == true ? setControll(false) : setControll(false)} */}
-
+            
 
         </Div>
     )
