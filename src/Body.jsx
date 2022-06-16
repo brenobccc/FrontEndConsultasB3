@@ -6,9 +6,6 @@ import Content from './Content'
 export default function Body(props) {
     return (
         <BodyDiv>
-            <NavAside>
-
-            </NavAside>
             <Content>
                  
             </Content>

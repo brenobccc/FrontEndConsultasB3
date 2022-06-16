@@ -10,7 +10,7 @@ import {
     Filler
 } from "chart.js";
 
-
+import Loading from './Loading'
 import { Line } from 'react-chartjs-2';
 import React, { useState, useEffect } from "react";
 import axios from "axios";
@@ -55,7 +55,7 @@ export default (props) => {
     //     // Utilizo o .slice(-2) para garantir o formato com 2 digitos.
     //   }
       
-
+    const [removeLoading, setRemoveLoading] = useState(false)
     // const url = "http://localhost:3000/teste?ativo=VALE3.SAO&data_inicial=2019-01-04&data_final=2020-02-26";
     const nomeAtivo = props.nomeAtivo;
     let dataIni = props.dataIni;
@@ -112,6 +112,7 @@ export default (props) => {
     // ]
 
     useEffect((nomeAtivo, dataIni, dataFim) => {
+        setRemoveLoading(false)
         axios.get(url).then((response) => {
             setDados(response.data);
 
@@ -184,7 +185,12 @@ export default (props) => {
                     },
                 },
             });
-        })
+
+
+            
+        }).then(()=>{setRemoveLoading(true);})
+          
+        
 
     },[nomeAtivo, dataIni, dataFim ]);
 
@@ -193,6 +199,6 @@ export default (props) => {
        
        
         <Div style={{fontSize: '14px' }} >
-            <Line id="grafico-linha" options={chartOptions} data={chartData} />
+             {!removeLoading ? <Loading/> : <Line id="grafico-linha" options={chartOptions} data={chartData} />}
         </Div>)
 }
