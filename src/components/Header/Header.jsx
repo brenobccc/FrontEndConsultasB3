@@ -7,10 +7,6 @@ export default function Header(props) {
 
             <Div>
                 <Logo>test</Logo>
-                <Menu>
-                    <li> Início </li>
-                    <li> Sobre </li>
-                </Menu>
             </Div>
 
 

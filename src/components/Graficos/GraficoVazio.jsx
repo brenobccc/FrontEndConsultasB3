@@ -4,6 +4,7 @@ import imagem from "../../assets/vazio.png"
 
 const Div = styled.div`
 width:80%;
+max-width: 900px;
 height: 390px;
 margin-top:30px;
 box-sizing: border-box;

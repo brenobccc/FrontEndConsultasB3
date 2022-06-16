@@ -10,6 +10,7 @@ const Div = styled.div`
 padding: 0 16px 40px 16px;
 margin-bottom: 40px;
 min-height: 1000px;
+max-width: 1500px;
 display: flex;
 flex-direction: column;
 box-sizing: border-box;
@@ -56,7 +57,22 @@ box-sizing: border-box;
 
 #box2{
     margin: 10px;
-    width: 45%;
+    width: 50%;
+}
+
+@media (max-width: 575px){
+    border-radius: 5px;
+    #box1{
+        padding: 10px;
+        width: 40%;
+        font-size: 11px;
+    }
+
+    #box2{
+        width: 60%;
+        margin: 5px;
+    }
+    
 }
 `;
 
@@ -102,6 +118,13 @@ const FormRow = styled.div`
         border: 0 solid black; 
         background-color: #B76B26;
    
+    }
+
+    @media (max-width: 575px){
+        & button, & #data_inicial,& #data_final{
+            font-size: 10px;
+        }
+        
     }
 
 
