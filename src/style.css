@@ -4,5 +4,7 @@
     padding: 0;
     background: #57E27E;
     font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-

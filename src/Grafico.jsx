@@ -17,12 +17,18 @@ import axios from "axios";
 import styled from "styled-components";
 
 const Div = styled.div`
-width:80%;
-height: 400px;
+
 background: white;
 padding-left: 15px;
 box-sizing: border-box;
 border-radius: 15px;
+// max-width: 1000px;
+// max-height: 500px;
+
+@media (min-width: 900px) and (max-width: 1200px){
+    background-color: white;
+    
+}
 `
 
 

@@ -5,20 +5,39 @@ import GraficoVazio from './GraficoVazio'
 // import InputForAny from './InputForAny'
 import Select from 'react-select'
 
+
 const Div = styled.div`
-padding: 0 16px;
+padding: 0 16px 40px 16px;
+margin-bottom: 40px;
+min-height: 1000px;
 display: flex;
 flex-direction: column;
 box-sizing: border-box;
 background: rgba(12, 36, 16, 0.13);
 width: 80%;
-    height: 753px;
+
     border-radius: 15px;
 
     & h2{
         margin-bottom: 0;
         color: white;
     }
+
+
+    @media (min-width:0px) and (max-width: 819px){
+        width: 98%;
+        & h2{
+            font-size:18px;
+        }
+    }
+    @media (min-width:820px) and (max-width: 1200px){
+
+        width: 90%;
+    }
+}
+
+
+
 `;
 
 const DivForm = styled.div`
@@ -74,12 +93,15 @@ const FormRow = styled.div`
 
         border: 0 solid black; 
         border-radius: 5px;
-        
+        transition: background-color 1s ;
+        cursor: pointer;
     }
 
     & button:hover{
+
         border: 0 solid black; 
-        background-color: #EE7E19;
+        background-color: #B76B26;
+   
     }
 
 

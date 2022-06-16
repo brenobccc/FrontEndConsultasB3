@@ -5,6 +5,7 @@
   import Body from './Body';
   import Footer from './Footer';
   import './style.css'
+import Content from "./Content";
    
   function App() {
     // useEffect(() => {
@@ -13,7 +14,7 @@
       <div className="App">
 
         <Header/> 
-        <Body/>
+        <Content/>
         <Footer/>
         {/* <Grafico nomeAtivo="VALE3.SAO;PETR4.SAO;R1H.FRK;IBM"/>
         <Grafico nomeAtivo="VALE3.SAO;PETR4.SAO;R1H.FRK;IBM"/> */}
