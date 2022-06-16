@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
-import imagem from './vazio.png'
-
+import imagem from "../../assets/vazio.png"
 
 const Div = styled.div`
 width:80%;

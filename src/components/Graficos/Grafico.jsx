@@ -10,7 +10,7 @@ import {
     Filler
 } from "chart.js";
 
-import Loading from './Loading'
+import Loading from '../Loading/Loading'
 import { Line } from 'react-chartjs-2';
 import React, { useState, useEffect } from "react";
 import axios from "axios";
@@ -50,7 +50,7 @@ ChartJS.register(
  
 
 
-export default (props) => {
+export default function Grafico(props){
 
     // function FormataStringData(data) {
     //     var dia  = data.split("/")[0];
@@ -106,17 +106,7 @@ export default (props) => {
         hoverPointRadius: 0
 
     }
-
-
-    const l = ['origin', '-1', '1','-2']
-    // const fi = [
-    //     {fill: 'origin'},   // 0: fill to 'origin'
-    //     {fill: '-1'},       // 1: fill to dataset 0
-    //     {fill: 1},          // 2: fill to dataset 1
-    //     {fill: false},      // 3: no fill
-    //     {fill: '-2'}        // 4: fill to dataset 2
-    // ]
-
+    
     useEffect((nomeAtivo, dataIni, dataFim) => {
         setRemoveLoading(false)
         axios.get(url).then((response) => {

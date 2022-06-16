@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from 'react';
 import styled from "styled-components";
-import DivGrafico from './DivGrafico';
-import GraficoVazio from './GraficoVazio'
+import DivGrafico from '../Graficos/DivGrafico';
+import GraficoVazio from '../Graficos/GraficoVazio'
 // import InputForAny from './InputForAny'
 import Select from 'react-select'
 
@@ -189,7 +189,7 @@ export default function Content(props) {
             {console.log("Data inicial:" + data_ini)}
 
             {controll == true ?
-                (ativo != "" && data_ini != "" && data_fim != "" ? (<DivGrafico dtIni={data_ini} dtFim={data_fim} ativos={ativo} />) : <GraficoVazio dataIni = {data_ini} dataFim = {data_fim} ativos={ativo}/>) : ""}
+                (ativo !== "" && data_ini !== "" && data_fim !== "" ? (<DivGrafico dtIni={data_ini} dtFim={data_fim} ativos={ativo} />) : <GraficoVazio dataIni = {data_ini} dataFim = {data_fim} ativos={ativo}/>) : ""}
             {/* { controll == true ? setControll(false) : setControll(false)} */}
 
 
