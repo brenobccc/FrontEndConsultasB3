@@ -114,7 +114,7 @@ export default function Grafico(props){
 
             let lista = []
 
-             for (let dads = 0, i = 0, j=0; dads < response.data.lista_ativosb3.length; dads++, i++, j++) {
+             for (let dads = response.data.lista_ativosb3.length-1, i = response.data.lista_ativosb3.length-1, j=response.data.lista_ativosb3.length-1; dads >=0; dads--, i--, j--) {
                 // let objData = dt.data;
                 // console.log(" teste \n");
                 // console.log("v:"+response.data.lista_ativosb3[dads].valores+"\n");
