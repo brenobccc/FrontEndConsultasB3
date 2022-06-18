@@ -6,7 +6,7 @@ export default function Header(props) {
         <HeaderDiv>
 
             <Div>
-                <Logo>test</Logo>
+                <Logo></Logo>
             </Div>
 
 

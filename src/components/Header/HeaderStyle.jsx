@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const HeaderDiv = styled.div`
     background: #57E27E;
     width: 100%;
-    height: 50px;
+    height: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,9 +21,9 @@ export const Div = styled.div`
 `;
 
 export const Logo = styled.div`
-    background: black;
+    // background: black;
     width: 320px;
-    heigth: 50px;
+    heigth: 15px;
 `
 
 

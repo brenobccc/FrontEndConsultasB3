@@ -46,30 +46,18 @@ ChartJS.register(
 
 
 
-  
- 
 
 
-export default function Grafico(props){
-
-    // function FormataStringData(data) {
-    //     var dia  = data.split("/")[0];
-    //     var mes  = data.split("/")[1];
-    //     var ano  = data.split("/")[2];
-      
-    //     return ano + '-' + ("0"+mes).slice(-2) + '-' + ("0"+dia).slice(-2);
-    //     // Utilizo o .slice(-2) para garantir o formato com 2 digitos.
-    //   }
-      
+export default function Grafico(props) {
     const [removeLoading, setRemoveLoading] = useState(false)
     // const url = "http://localhost:3000/teste?ativo=VALE3.SAO&data_inicial=2019-01-04&data_final=2020-02-26";
     const nomeAtivo = props.nomeAtivo;
     let dataIni = props.dataIni;
     let dataFim = props.dataFim;
 
-    console.log("nome atual:"+nomeAtivo);
-    console.log("dataIni"+dataIni)
-    const url = `http://localhost:3000/teste?ativo=${nomeAtivo}&data_inicial=${dataIni}&data_final=${dataFim}`
+    console.log("nome atual:" + nomeAtivo);
+    console.log("dataIni" + dataIni)
+    const url = `http://localhost:8080/lista_ativos?ativo=${nomeAtivo}&data_inicial=${dataIni}&data_final=${dataFim}`
     const [dados, setDados] = useState();
     const [chartData, setChartData] = useState({
         datasets: [],
@@ -77,18 +65,20 @@ export default function Grafico(props){
 
     const lista_de_cores = [
         'rgb(181, 101, 167)',
-        'rgb(221, 65, 36)', 
-        'rgb(136, 176, 75)', 
-        'rgb(146, 168, 209)', 
+        'rgb(221, 65, 36)',
+        'rgb(136, 176, 75)',
+        'rgb(146, 168, 209)',
         'rgb(255, 77, 0)',
-        'rgb(31, 87, 56)'
+        'rgb(31, 87, 56)',
+        'rgb(128,0,128)',
+        'rgb(47,79,79)',
+        'rgb(102,205,170)',
+        'rgb(176,224,230)',
+        'rgb(216,191,216)'
     ]
-    
 
     const [chartOptions, setChartOptions] = useState({});
-
     const [datsets, setDatasets] = useState([]);
-
     const dt = {
         label: 'Gráfico Teste',
         backgroundColor: '',
@@ -106,7 +96,7 @@ export default function Grafico(props){
         hoverPointRadius: 0
 
     }
-    
+
     useEffect((nomeAtivo, dataIni, dataFim) => {
         setRemoveLoading(false)
         axios.get(url).then((response) => {
@@ -114,7 +104,7 @@ export default function Grafico(props){
 
             let lista = []
 
-             for (let dads = response.data.lista_ativosb3.length-1, i = response.data.lista_ativosb3.length-1, j=response.data.lista_ativosb3.length-1; dads >=0; dads--, i--, j--) {
+            for (let dads = response.data.lista_ativosb3.length - 1, i = response.data.lista_ativosb3.length - 1, j = response.data.lista_ativosb3.length - 1; dads >= 0; dads--, i--, j--) {
                 // let objData = dt.data;
                 // console.log(" teste \n");
                 // console.log("v:"+response.data.lista_ativosb3[dads].valores+"\n");
@@ -127,16 +117,16 @@ export default function Grafico(props){
                     borderColor: lista_de_cores[i],
                     borderWidth: 1.5,
                     data: response.data.lista_ativosb3[dads].valores,
-                
 
-                    
-    // const fi = [
-    //     {fill: 'origin'},   // 0: fill to 'origin'
-    //     {fill: '-1'},       // 1: fill to dataset 0
-    //     {fill: 1},          // 2: fill to dataset 1
-    //     {fill: false},      // 3: no fill
-    //     {fill: '-2'}        // 4: fill to dataset 2
-    // ]
+
+
+                    // const fi = [
+                    //     {fill: 'origin'},   // 0: fill to 'origin'
+                    //     {fill: '-1'},       // 1: fill to dataset 0
+                    //     {fill: 1},          // 2: fill to dataset 1
+                    //     {fill: false},      // 3: no fill
+                    //     {fill: '-2'}        // 4: fill to dataset 2
+                    // ]
                     //     target: 'origin',
                     //     above: 'red',   // Area will be red above the origin
                     //     below: 'red'    // And blue below the origin
@@ -146,7 +136,7 @@ export default function Grafico(props){
                     pointStyle: 'circle',
                     pointRadius: 0,
                     hoverPointRadius: 0,
-                    
+
 
                 });
             }
@@ -166,7 +156,7 @@ export default function Grafico(props){
                 labels: response.data.list_datas_genericas,
                 datasets: lista,
             });
-            
+
 
             setChartOptions({
                 // maintainAspectRatio: false,
@@ -183,18 +173,18 @@ export default function Grafico(props){
             });
 
 
-            
-        }).then(()=>{setRemoveLoading(true);})
-          
-        
 
-    },[nomeAtivo, dataIni, dataFim ]);
+        }).then(() => { setRemoveLoading(true); })
+
+
+
+    }, [nomeAtivo, dataIni, dataFim]);
 
 
     return (
-       
-       
-        <Div style={{fontSize: '14px' }} >
-             {!removeLoading ? <Loading/> : <Line id="grafico-linha" options={chartOptions} data={chartData} />}
+
+
+        <Div style={{ fontSize: '14px' }} >
+            {!removeLoading ? <Loading /> : <Line id="grafico-linha" options={chartOptions} data={chartData} />}
         </Div>)
 }
