@@ -172,7 +172,7 @@ export default function Content(props) {
             <h2>Realizar Consultas de Ativos da Bolsa de Valores </h2>
             <DivForm>
                 <div id="box1">
-                    Deseja consultar um ativo e suas devidas informações? Informe abaixo a Data inicial, a Data final o(s) ativo(s) desejados.
+                    Deseja consultar um ativo e suas devidas informações? Informe abaixo a Data inicial, a Data final, e o(s) ativo(s) desejados.
                 </div>
                 <div id="box2">
                     <Select isMulti onChange={(item) => setSelectedOptions(item)} options={options} placeholder="Escolha os ativos" />
